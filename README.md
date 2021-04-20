@@ -52,7 +52,7 @@ Simply declare the method in your event `Popup.show({...})` in its component.
                 title: 'Upload complete',
                 button: false,
                 textBody: 'Congrats! Your upload successfully done',
-                buttontext: 'Ok',
+                buttonText: 'Ok',
                 callback: () => Popup.hide()
               })
             }
@@ -141,17 +141,18 @@ Popup.show({
 
 ### Popup Component
 
-| Name       | Description                                     | Default            | Type   |
-| ---------- | ----------------------------------------------- | ------------------ | ------ |
-| title      | Sets the main popup title                       | Upload complete    | String |
-| type       | Defines the type (Success, Warning or Error)    | Success            | String |
-| textBody   | Defines the text body of popup                  |                    | String |
-| button     | Whether or not to display the                   | true               | Bool   |
-| buttonText | Defines the text button of popup                | Ok                 | String |
-| callback   | Defines the function of button                  | Alert()            | Func   |
-| background | Sets the backgroundColor                        | rgba(0, 0, 0, 0.5) | String |
-| timing     | Sets the time for the popup to close by itself  | 5000               | Number |
-| autoclose  | sets whether the popup will close automatically | false              | Bool   |
+| Name       | Description                                     | Default            | Type        |
+| ---------- | ----------------------------------------------- | ------------------ | ----------- |
+| title      | Sets the main popup title                       | Upload complete    | String      |
+| type       | Defines the type (Success, Warning or Error)    | Success            | String      |
+| textBody   | Defines the text body of popup                  |                    | String      |
+| button     | Whether or not to display the                   | true               | Bool        |
+| buttonText | Defines the text button of popup                | Ok                 | String      |
+| callback   | Defines the function of button                  | Alert()            | Func        |
+| background | Sets the backgroundColor                        | rgba(0, 0, 0, 0.5) | String      |
+| timing     | Sets the time for the popup to close by itself  | 5000               | Number      |
+| autoclose  | sets whether the popup will close automatically | false              | Bool        |
+| icon       | use costum icon                                 | false              | Component   |
 
 
 ### Toast Component
@@ -175,6 +176,7 @@ Rafael Augusto | [https://linkedin.com/in/rafaelaugustos/](https://linkedin.com/
 ## Roadmap
 - <s>Toast</s>
 - Alert/Confirm
+- Create a function to close toast with gesture
 
 
 ## License
