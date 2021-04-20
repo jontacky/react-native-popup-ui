@@ -133,6 +133,7 @@ class Popup extends Component {
 					}]}
 
 				>
+					<Pressable style={styles.Content} onPress={() => this.hidePopup()}>
 					<View style={styles.Header} />
 					{
 						this.state.icon ? (this.state.icon) :
@@ -140,6 +141,7 @@ class Popup extends Component {
 								source={this.handleImage(type)}
 								resizeMode="contain"
 								style={styles.Image}
+								onPress={() => this.hidePopup()}
 							/>
 					}
 					<View style={styles.Content}>
@@ -147,6 +149,7 @@ class Popup extends Component {
 						<Text style={styles.Desc}>{textBody}</Text>
 						{el}
 					</View>
+					</Pressable>
 				</Animated.View>
 			</Animated.View>
 		)
