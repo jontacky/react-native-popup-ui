@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity, StyleSheet, Image, Animated, Dimensions, Alert } from 'react-native'
+import { Alert, Animated, Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 const WIDTH = Dimensions.get('screen').width
 const HEIGHT = Dimensions.get('screen').height
@@ -113,6 +113,7 @@ class Popup extends Component {
 		}
 		return (
 			<Animated.View
+			onPress={() => this.hidePopup()}
 				ref={c => this._root = c}
 				style={[styles.Container, {
 					backgroundColor: background || 'transparent',
