@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Alert, Animated, Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Alert, Animated, Dimensions, Image, Pressable, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 const WIDTH = Dimensions.get('screen').width
 const HEIGHT = Dimensions.get('screen').height
@@ -133,23 +133,27 @@ class Popup extends Component {
 					}]}
 
 				>
-					<Pressable style={styles.Content} onPress={() => this.hidePopup()}>
+					
 					<View style={styles.Header} />
 					{
 						this.state.icon ? (this.state.icon) :
+						<Pressable style={styles.Content} onPress={() => this.hidePopup()}>
 							<Image
 								source={this.handleImage(type)}
 								resizeMode="contain"
 								style={styles.Image}
 								onPress={() => this.hidePopup()}
 							/>
+						</Pressable>
 					}
 					<View style={styles.Content}>
 						<Text style={styles.Title}>{title}</Text>
 						<Text style={styles.Desc}>{textBody}</Text>
 						{el}
 					</View>
-					</Pressable>
+					<View>
+						<Text onPress={() => this.hidePopup()}>CLOSE</Text>
+					</View>
 				</Animated.View>
 			</Animated.View>
 		)
