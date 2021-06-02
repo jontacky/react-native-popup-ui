@@ -29,6 +29,7 @@ class Popup extends Component {
 			icon: config.icon !== undefined ? config.icon : false,
 			textBody: config.textBody,
 			button: config.button !== undefined ? config.button : true,
+			closeButton: config.closeButto !== undefined ? config.closeButton : true,
 			buttonText: config.buttonText || 'Ok',
 			callback: config.callback !== undefined ? config.callback : this.defaultCallback(),
 			background: config.background || 'rgba(0, 0, 0, 0.5)',
@@ -133,27 +134,31 @@ class Popup extends Component {
 					}]}
 
 				>
-					
+				<Pressable style={styles.Content} onPress={() => this.hidePopup()}>
 					<View style={styles.Header} />
 					{
 						this.state.icon ? (this.state.icon) :
-						<Pressable style={styles.Content} onPress={() => this.hidePopup()}>
+
 							<Image
 								source={this.handleImage(type)}
 								resizeMode="contain"
 								style={styles.Image}
 								onPress={() => this.hidePopup()}
 							/>
-						</Pressable>
 					}
 					<View style={styles.Content}>
 						<Text style={styles.Title}>{title}</Text>
 						<Text style={styles.Desc}>{textBody}</Text>
 						{el}
 					</View>
-					<View>
-						<Text onPress={() => this.hidePopup()}>CLOSE</Text>
+					</Pressable>
+					{this.state.closeButton &&
+					<View >
+					<TouchableOpacity style={[styles.CloseButton, styles.Danger]} onPress={() => this.hidePopup()}>
+						<Text style={styles.TextButton}>Close</Text>
+					</TouchableOpacity>
 					</View>
+					}
 				</Animated.View>
 			</Animated.View>
 		)
@@ -173,7 +178,7 @@ const styles = StyleSheet.create({
 	},
 	Message: {
 		maxWidth: 300,
-		width: 230,
+		width: 'auto',
 		minHeight: 300,
 		backgroundColor: '#fff',
 		borderRadius: 30,
@@ -182,7 +187,7 @@ const styles = StyleSheet.create({
 		position: 'absolute',
 	},
 	Content: {
-		padding: 20,
+		padding: 10,
 		alignItems: 'center'
 	},
 	Header: {
@@ -214,7 +219,16 @@ const styles = StyleSheet.create({
 		width: 130,
 		justifyContent: 'center',
 		alignItems: 'center',
-		marginTop: 30
+		marginTop: 10
+	},
+	CloseButton: {
+		borderRadius: 50,
+		height: 40,
+		width: 130,
+		justifyContent: 'center',
+		alignItems: 'center',
+		marginTop: 7,
+		marginBottom: 10
 	},
 	TextButton: {
 		color: '#fff',
